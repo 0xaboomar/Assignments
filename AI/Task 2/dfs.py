@@ -23,7 +23,7 @@ def dfs(graph, start, target):
         current = parent[current]
     path.reverse()
 
-    print(f"path to node {target}: {path}")
+    print(f"path to the target node {target}: {path}")
 
 
 graph = {
