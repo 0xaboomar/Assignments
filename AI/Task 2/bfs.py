@@ -1,6 +1,6 @@
 from queue import Queue
 
-def bfs(graph, start):
+def bfs(graph, start, target):
     q = Queue()
     q.put(start)
 
@@ -10,7 +10,9 @@ def bfs(graph, start):
 
     while not q.empty():
         node = q.get()
-        print(node, end=' ')
+
+        if node == target:
+            break
 
         for neighbor in graph[node]:
             if not visited[neighbor]:
@@ -18,16 +20,14 @@ def bfs(graph, start):
                 parent[neighbor] = node
                 q.put(neighbor)
 
-    print("\n")
+    path = []
+    current = target
+    while current is not None:
+        path.append(current)
+        current = parent[current]
+    path.reverse()
 
-    for node in graph:
-        path = []
-        current = node
-        while current is not None:
-            path.append(current)
-            current = parent[current]
-        path.reverse()
-        print(f"path to node {node}: {path}")
+    print(f"path to node {target}: {path}")
 
 
 graph = {
@@ -38,5 +38,4 @@ graph = {
     4: [1, 2]
 }
 
-bfs(graph, 0)
-
+bfs(graph, 0, 4)
