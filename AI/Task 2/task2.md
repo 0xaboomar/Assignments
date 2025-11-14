@@ -1,8 +1,8 @@
-# Implementation of DFS & BFS with printing the path of each node
+# Implementation of DFS & BFS with printing the path to the target node
 
 The idea is to maintain a parent map that maps each node to it's corresponding parent node.
 
-After finishing the DFS | BFS Traversal build the parent path for each node and print it
+The traversal stops after reaching the target node , then the path to this node is constructed from the parent map and printed
 
 Here is the output of DFS code
 
